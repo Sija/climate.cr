@@ -1,0 +1,14 @@
+name: climate
+version: 0.1.0
+
+authors:
+  - Sijawusz Pur Rahnama <sija@sija.pl>
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.12.0
+
+crystal: 0.34.0
+
+license: MIT
