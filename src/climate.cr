@@ -19,7 +19,7 @@ module Climate
         if decoration = style.decoration
           value = value.mode(decoration)
         end
-        next "#{opening}#{value}#{closing}" if style.keep_delimiters
+        next "#{opening}#{value}#{closing}" if style.keep_delimiters?
         value
       end
     end

@@ -12,7 +12,7 @@ describe Climate::Style do
       decoration: :bold
     )
     style.delimiters.should eq({'?', '¿'})
-    style.keep_delimiters.should be_false
+    style.keep_delimiters?.should be_false
     style.colors.should eq({
       fore: :magenta,
       back: :default,
