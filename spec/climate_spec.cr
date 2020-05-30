@@ -24,10 +24,10 @@ describe Climate do
         settings.use_defaults!
 
         expected_parts = {
-          "Error".colorize(:red),
-          "foo".colorize(:blue),
-          "bar".colorize(:green),
-          "baz".colorize(:yellow),
+          "Error".colorize.fore(:red),
+          "foo".colorize.fore(:blue),
+          "bar".colorize.fore(:green),
+          "baz".colorize.fore(:yellow),
         }
         Climate.parse("!Error¡: {foo} <bar> [baz]")
           .should eq("%s: %s <%s> [%s]" % expected_parts)
