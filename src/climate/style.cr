@@ -16,5 +16,29 @@ module Climate
         raise ArgumentError.new("Cannot use alphanumeric or whitespace delimiters")
       end
     end
+
+    protected getter pattern : Regex do
+      opening, closing = delimiters
+      Regex.new(
+        "\\#{opening}(?<value>[^\\#{closing}\\s]+)\\#{closing}"
+      )
+    end
+
+    def parse(message : String) : String
+      opening, closing = delimiters
+      message.gsub(pattern) do |_, match|
+        value = match["value"].colorize
+        if colors = self.colors
+          value = value
+            .fore(colors[:fore] || :default)
+            .back(colors[:back] || :default)
+        end
+        if decoration = self.decoration
+          value = value.mode(decoration)
+        end
+        next "#{opening}#{value}#{closing}" if keep_delimiters?
+        value
+      end
+    end
   end
 end
