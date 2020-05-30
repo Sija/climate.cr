@@ -18,7 +18,7 @@ describe Climate do
     end
   end
 
-  describe ".colorize" do
+  describe ".parse" do
     it "works with defaults" do
       with_clean_settings do |settings|
         settings.use_defaults!
@@ -29,7 +29,7 @@ describe Climate do
           "bar".colorize(:green),
           "baz".colorize(:yellow),
         }
-        Climate.colorize("!Error¡: {foo} <bar> [baz]")
+        Climate.parse("!Error¡: {foo} <bar> [baz]")
           .should eq("%s: %s <%s> [%s]" % expected_parts)
       end
     end

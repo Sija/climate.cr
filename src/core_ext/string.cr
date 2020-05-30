@@ -1,5 +1,5 @@
 class String
   def climatize : String
-    Climate.colorize(self)
+    Climate.parse(self)
   end
 end

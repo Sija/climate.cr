@@ -5,7 +5,7 @@ require "./core_ext/*"
 module Climate
   extend self
 
-  def colorize(message : String) : String
+  def parse(message : String) : String
     settings.styles.each do |style|
       opening, closing = style.delimiters
       pattern = Regex.new("\\#{opening}(?<value>[^\\#{closing}\\s]+)\\#{closing}")

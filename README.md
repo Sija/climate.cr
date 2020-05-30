@@ -22,8 +22,8 @@ require "climate"
 
 message = "Usage: {#{PROGRAM_NAME}} <required-arg> [optional-arg]"
 
-# you can call `Climate.colorize` method directly
-puts Climate.colorize(message)
+# you can call `Climate.parse` method directly
+puts Climate.parse(message)
 
 # or use a `String#climatize` extension
 puts message.climatize
