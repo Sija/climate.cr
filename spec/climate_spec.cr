@@ -30,4 +30,16 @@ describe Climate do
         .should eq("%s: %s <%s> [%s]" % expected_parts)
     end
   end
+
+  it ".strip" do
+    with_clean_settings(use_defaults: true) do
+      expected_parts = {"Error", "foo", "bar", "baz"}
+
+      Climate.strip("!Error¡: {foo} <bar> [baz]")
+        .should eq("%s: %s <%s> [%s]" % expected_parts)
+
+      Climate.strip("!Error¡: {foo} <bar> [baz]", force: true)
+        .should eq("%s: %s %s %s" % expected_parts)
+    end
+  end
 end

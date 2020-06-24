@@ -69,4 +69,22 @@ describe Climate::Style do
       end
     end
   end
+
+  describe "#strip" do
+    context "force: false" do
+      it "keeps delimiters" do
+        style = build_style(keep_delimiters: true)
+        style.strip("Does it ?FOO¿?")
+          .should eq("Does it ?FOO¿?")
+      end
+    end
+
+    context "force: true" do
+      it "strips delimiters" do
+        style = build_style(keep_delimiters: true)
+        style.strip("Does it ?FOO¿?", force: true)
+          .should eq("Does it FOO?")
+      end
+    end
+  end
 end

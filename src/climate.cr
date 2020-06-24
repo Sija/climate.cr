@@ -10,4 +10,10 @@ module Climate
       style.parse(acc)
     end
   end
+
+  def strip(message : String, *, force = false) : String
+    settings.styles.reduce(message) do |acc, style|
+      style.strip(acc, force: force)
+    end
+  end
 end

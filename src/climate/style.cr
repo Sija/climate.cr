@@ -40,5 +40,15 @@ module Climate
         value
       end
     end
+
+    def strip(message : String, *, force = false) : String
+      opening, closing = delimiters
+      message.gsub(pattern) do |_, match|
+        value = match["value"]
+        next value if force
+        next "#{opening}#{value}#{closing}" if keep_delimiters?
+        value
+      end
+    end
   end
 end
