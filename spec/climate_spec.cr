@@ -18,20 +18,16 @@ describe Climate do
     end
   end
 
-  describe ".parse" do
-    it "works with defaults" do
-      with_clean_settings do |settings|
-        settings.use_defaults!
-
-        expected_parts = {
-          "Error".colorize.fore(:red),
-          "foo".colorize.fore(:blue),
-          "bar".colorize.fore(:green),
-          "baz".colorize.fore(:yellow),
-        }
-        Climate.parse("!Error¡: {foo} <bar> [baz]")
-          .should eq("%s: %s <%s> [%s]" % expected_parts)
-      end
+  it ".parse" do
+    with_clean_settings(use_defaults: true) do
+      expected_parts = {
+        "Error".colorize.fore(:red),
+        "foo".colorize.fore(:blue),
+        "bar".colorize.fore(:green),
+        "baz".colorize.fore(:yellow),
+      }
+      Climate.parse("!Error¡: {foo} <bar> [baz]")
+        .should eq("%s: %s <%s> [%s]" % expected_parts)
     end
   end
 end

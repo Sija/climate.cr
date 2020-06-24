@@ -1,9 +1,10 @@
 require "spec"
 require "../src/climate"
 
-def with_clean_settings
+def with_clean_settings(*, use_defaults = false)
   Climate.configure do |settings|
     settings.styles.clear
-    yield settings
+    settings.use_defaults! if use_defaults
   end
+  yield Climate.settings
 end
