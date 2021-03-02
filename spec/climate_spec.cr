@@ -3,6 +3,7 @@ require "./spec_helper"
 describe Climate do
   describe ".configure" do
     it "yields Settings instance" do
+      # ameba:disable Style/VerboseBlock
       Climate.configure do |settings|
         settings.should be_a(Climate::Settings)
       end
