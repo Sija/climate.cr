@@ -1,4 +1,4 @@
-# climate.cr [![Build Status](https://travis-ci.com/Sija/climate.cr.svg?branch=master)](https://travis-ci.com/Sija/climate.cr) [![Releases](https://img.shields.io/github/release/Sija/climate.cr.svg)](https://github.com/Sija/climate.cr/releases) [![License](https://img.shields.io/github/license/Sija/climate.cr.svg)](https://github.com/Sija/climate.cr/blob/master/LICENSE)
+# climate.cr [![CI](https://github.com/Sija/climate.cr/actions/workflows/ci.yml/badge.svg)](https://github.com/Sija/climate.cr/actions/workflows/ci.yml) [![Releases](https://img.shields.io/github/release/Sija/climate.cr.svg)](https://github.com/Sija/climate.cr/releases) [![License](https://img.shields.io/github/license/Sija/climate.cr.svg)](https://github.com/Sija/climate.cr/blob/master/LICENSE)
 
 Small helper utility to make your CLI program output 🌈 coloured by means
 of configurable markup styles. Think of it as your CLI-mate :)
