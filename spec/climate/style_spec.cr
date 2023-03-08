@@ -24,7 +24,7 @@ describe Climate::Style do
         fore: :magenta,
         back: :default,
       })
-      style.decoration.should eq(:bold)
+      style.decoration.should eq(Colorize::Mode::Bold)
     end
 
     it "raises when passed alphanumeric delimiters" do

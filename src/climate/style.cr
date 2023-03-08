@@ -6,14 +6,17 @@ module Climate
       fore: Colorize::Color | Symbol,
       back: Colorize::Color | Symbol,
     )?
-    getter decoration : Symbol?
+    getter decoration : Colorize::Mode?
 
-    def initialize(@delimiters, @keep_delimiters, @colors = nil, @decoration = nil)
-      unless @colors || @decoration
+    def initialize(@delimiters, @keep_delimiters, @colors = nil, decoration = nil)
+      unless @colors || decoration
         raise ArgumentError.new("Need to specify either colors or decoration")
       end
       if @delimiters.any? { |c| c.alphanumeric? || c.whitespace? }
         raise ArgumentError.new("Cannot use alphanumeric or whitespace delimiters")
+      end
+      if decoration
+        @decoration = Colorize::Mode.parse(decoration.to_s)
       end
     end
 
