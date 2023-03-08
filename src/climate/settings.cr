@@ -46,7 +46,7 @@ module Climate
 
   class_getter settings : Settings { Settings.new }
 
-  def configure : Nil
+  def configure(&) : Nil
     yield settings
   end
 end
