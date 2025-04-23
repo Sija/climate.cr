@@ -12,7 +12,7 @@ module Climate
       unless @colors || decoration
         raise ArgumentError.new("Need to specify either colors or decoration")
       end
-      if @delimiters.any? { |c| c.alphanumeric? || c.whitespace? }
+      if @delimiters.any? { |char| char.alphanumeric? || char.whitespace? }
         raise ArgumentError.new("Cannot use alphanumeric or whitespace delimiters")
       end
       if decoration
